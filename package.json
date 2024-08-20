@@ -1,0 +1,15 @@
+{
+  "name": "crudmoveis",
+  "version": "1.0.0",
+  "description": "LOJA: nome endereço: rua bairro numero, loja_id gerente: nome telefone, loja_id dono: nome, loja_id cliente: nome telefone endereço, loja_id fornecedor: nome, loja_id estoque: nome, loja_id produto: detalhes, estoque_id financeiro: custos, loja_id",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
