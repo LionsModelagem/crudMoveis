@@ -1,6 +1,6 @@
 const db = [];
-const loja_controller = require("./loja"); // Corrigir de acordo com o nome correto
-const nextId = 1;
+const loja_controller = require("./loja.js"); // Corrigir de acordo com o nome correto
+let nextId = 1;
 
 const model = (financeiro, id = nextId++) => {
   if (
@@ -10,7 +10,6 @@ const model = (financeiro, id = nextId++) => {
     financeiro.entrada != "" &&
     financeiro.saida != undefined &&
     financeiro.saida != "" &&
-    loja_controller.loja_id != undefined &&
     loja_controller.show(financeiro.loja_id)
   ) {
     return {
@@ -18,7 +17,7 @@ const model = (financeiro, id = nextId++) => {
       nome: financeiro.nome,
       entrada: financeiro.entrada,
       saida: financeiro.saida,
-      id_loja: loja.loja_id,
+      id_loja: financeiro.loja_id,
     };
   }
 };

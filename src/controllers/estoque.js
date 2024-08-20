@@ -1,18 +1,17 @@
 const db = [];
-const loja_controller = require("./loja"); // Corrigir de acordo com o nome correto
-const nextId = 1;
+const loja_controller = require("./loja.js"); // Corrigir de acordo com o nome correto
+let nextId = 1;
 
 const model = (estoque, id = nextId++) => {
   if (
     estoque.quantidade != undefined &&
     estoque.quantidade != "" &&
-    loja_controller.loja_id != undefined &&
     loja_controller.show(estoque.loja_id)
   ) {
     return {
       id,
       quantidade: estoque.quantidade,
-      id_loja: loja.id_loja,
+      id_loja: estoque.loja_id,
     };
   }
 };
