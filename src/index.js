@@ -1,6 +1,11 @@
+
 const express = require("express")
 const fornecedor_controller = require("./controller/fornecedor.js")
 const dono_controller = require("./controller/dono.js")
+const cliente_controller = require("./controller/cliente.js")
+const loja_controller = require('./controllers/loja.js');
+const gerente_controller = require('./controllers/gerente.js');
+const endereco_loja_controller = require('./controllers/endereco_loja.js');
 const app = express()
 const port = 3000
 
