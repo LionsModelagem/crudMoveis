@@ -6,6 +6,9 @@ const cliente_controller = require("./controllers/cliente.js");
 const loja_controller = require('./controllers/loja.js');
 const gerente_controller = require('./controllers/gerente.js');
 const endereco_loja_controller = require('./controllers/endereco_loja.js');
+const financeiro_controller = require('./controllers/financeiro.js')
+const produto_controller = require('./controllers/produto.js')
+const estoque_controller = require('./controllers/estoque.js')
 const app = express();
 const port = 3000;
 
@@ -182,4 +185,88 @@ app.delete("endereco/:id", (req, res) => {
 
 app.listen(port, () => {
     console.log("servidor rodando")
+});
+
+// GERENCIAMENTO FINANCEIRO //
+
+app.post("/financeiro", (req, res) => {
+    const financeiro = req.body
+    const code = financeiro_controller.store(financeiro)
+    res.status(code)
+});
+
+app.get("/financeiro", (req, res) => {
+    const financeiro = financeiro_controller.index()
+    res.json(financeiro)
+});
+
+app.get("/financeiro/:id", (req, res) => {
+    const financeiro = financeiro_controller.update(req.params.id, financeiro)
+    res.json(financeiro)
+});
+
+app.put("/financeiro/:id", (req, res) => {
+    const financeiro = req.body
+    const code = financeiro_controller.update(req.params.id, financeiro)
+});
+
+app.delete("financeiro/:id", (req, res) => {
+    financeiro_controller.destroy(req.params.id)
+    res.json()
+});
+
+// GERENCIAMENTO PRODUTO //
+
+app.post("/produto", (req, res) => {
+    const produto = req.body
+    const code = produto_controller.store(produto)
+    res.status(code)
+});
+
+app.get("/produto", (req, res) => {
+    const produto = produto_controller.index()
+    res.json(produto)
+});
+
+app.get("/produto/:id", (req, res) => {
+    const produto = produto_controller.update(req.params.id, produto)
+    res.json(produto)
+});
+
+app.put("/produto/:id", (req, res) => {
+    const produto = req.body
+    const code = produto_controller.update(req.params.id, produto)
+});
+
+app.delete("produto/:id", (req, res) => {
+    produto_controller.destroy(req.params.id)
+    res.json()
+});
+
+// GERENCIAMENTO ESTOQUE //
+
+app.post("/estoque", (req, res) => {
+    const estoque = req.body
+    const code = estoque_controller.store(estoque)
+    res.status(code)
+});
+
+app.get("/estoque", (req, res) => {
+    const estoque = estoque_controller.index()
+    res.json(estoque)
+});
+
+app.get("/estoque/:id", (req, res) => {
+    const estoque = estoque_controller.update(req.params.id, estoque)
+    res.json(estoque)
+});
+
+app.put("/estoque/:id", (req, res) => {
+    const estoque = req.body
+    const code = estoque_controller.update(req.params.id, estoque)
+});
+
+app.delete("/estoque/:id", (req, res) => {
+    estoque_controller.destroy(req.params.id)
+    res.json()
 });
